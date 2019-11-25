@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Exit if any subcommand fails
-set -e 
+set -e
 
 # Setup node modules if needed
-if [ -e node_modules/.bin/eslint ]; then
+if [ -e node_modules/.bin/gulp ]; then
     setup=""
 else
     echo "## Your environment is not ready yet. Installing modules..."
@@ -21,9 +21,9 @@ fi
 
 if [ -z "$1" ]; then
     glob="."
-else 
+else
     glob="$@"
 fi
 
-echo "## Running ESLint"
-sh -c "$setup ./node_modules/.bin/eslint $glob"
+echo "## Running Gulp minify"
+sh -c "$setup ./node_modules/.bin/gulp minify"
